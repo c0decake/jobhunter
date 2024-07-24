@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="added-jobs">
+    {% if orders %}
+    {% for order in orders %}
+    <div class="added-order">
+        d
+    </div>
+    {% endfor %}
+    {% else %}
+    <div class="added-order">
+        <p>Нет добавленных заказов</p>
+    </div>
+    {% endif %}
+    <a href="{% url 'menu:adding_job' %}"><button type="button" class="add-new-order">Добавить новую подработку</button></a>
+</div>
+{% endblock %}

@@ -1,0 +1,73 @@
+.job-form-wrapper {
+    width: 400px;
+    height: 500px;
+    background-color: white;
+    border-radius: 10px;
+    padding: 30px 10px;
+    margin: 0 auto;
+}
+
+.job-form-wrapper h1 {
+    text-align: center;
+    font-family: "Jost", sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.new-job-form {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    margin: 50px auto;
+    align-items: center;
+}
+
+.new-job-form > * {
+    border: none;
+    margin-bottom: 10px;
+}
+
+.new-job-form .city, .district {
+    width: 300px;
+    height: 30px;
+    border: none;
+    border-bottom: 1px grey solid;
+}
+
+.new-job-form .city, .district:focus {
+    outline: none;
+}
+
+.new-job-form .shop {
+    width: 100px;
+}
+
+.new-job-form .job-date {
+    width: 100px;
+    text-align: center;
+    border: none;
+    border-bottom: 1px grey solid;
+}
+
+.new-job-form .time-h, .time-m {
+    width: 50px;
+    text-align: center;
+    border: none;
+    border-bottom: 1px grey solid;
+}
+
+.new-job-form .post {
+    width: 200px;
+    text-align: center;
+    border: none;
+    border-bottom: 1px grey solid;
+}
+
+.new-job-form .datetime {
+    display: flex;
+    border: none;
+}
+
+.new-job-form .price-field {
+    width: 100px;
+}

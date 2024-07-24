@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<div class="search" id="searching-block">
+    <div class="filters">
+        <input type='date' id="searching-date" class="searching-date">
+        <input type='time' id="searching-time-start" class="searching-time-start">
+        <input type='time' id="searching-time-finish" class="searching-time-finish">
+        <select id="searching-city" class="searching-city" onchange="showDistrictOptions()"></select>
+        <select id="searching-district" class="searching-district"></select>
+        <select id="searching-post" class="searching-post"></select>
+        <div class="searching-taxi-to-wrapper">
+            <label for="searching-taxi-to" onmouseout="showTaxiToPopup()" onmouseover="showTaxiToPopup()">🚖</label>
+            <input type='checkbox' id="searching-taxi-to" class="searching-taxi-to">
+            <div class="popup taxi-to-popup" id="taxi-to-popup">
+                <h1>Такси на работу</h1>
+                <p>Выбор подработок с такси на смену</p>
+            </div>
+        </div>
+        <div class="searching-taxi-from-wrapper">
+            <label for="searching-taxi-from" onmouseout="showTaxiFromPopup()"
+                   onmouseover="showTaxiFromPopup()">🚕</label>
+            <input type='checkbox' id="searching-taxi-from" class="searching-taxi-from">
+            <div class="popup taxi-from-popup" id="taxi-from-popup">
+                <h1>Такси с работы</h1>
+                <p>Выбор подработок с такси после смены</p>
+            </div>
+        </div>
+        <div class="searching-drinks-wrapper">
+            <label for="searching-drinks" onmouseout="showDrinksPopup()" onmouseover="showDrinksPopup()">🧃</label>
+            <input type='checkbox' id="searching-drinks" class="searching-drinks">
+            <div class="popup drinks-popup" id="drinks-popup">
+                <h1>Цеховые напитки</h1>
+                <p>Выбор подработок с возможностью списывать нестандартные напитки на цеховое питание. Например, раф
+                    соленая карамель</p>
+            </div>
+        </div>
+        <div class="searching-food-wrapper">
+            <label for="searching-food" onmouseout="showFoodPopup()" onmouseover="showFoodPopup()">🥐</label>
+            <input type='checkbox' id="searching-food" class="searching-food">
+            <div class="popup food-popup" id="food-popup">
+                <h1>Цеховое питание</h1>
+                <p>Выбор подработок с возможностью списывать готовую еду на цеховое питание</p>
+            </div>
+        </div>
+        <div class="searching-toilet-wrapper">
+            <label for="searching-toilet" onmouseout="showToiletPopup()" onmouseover="showToiletPopup()">🚾</label>
+            <input type='checkbox' id="searching-toilet" class="searching-toilet">
+            <div class="popup toilet-popup" id="toilet-popup">
+                <h1>Туалет в быстром доступе</h1>
+                <p>Выбор подработок с туалетом в ближайшей доступности. Например, ТЦ</p>
+            </div>
+        </div>
+    </div>
+    <div class="table-container">
+        <table id="offers-table" class="offers-table">
+            <thead>
+            <tr>
+                <th class="data-field">Дата</th>
+                <th class="work-time-field">Рабочая смена</th>
+                <th class="location-field">Расположение</th>
+                <th class="post-field">Должность</th>
+                <th class="additions-field">Дополнения</th>
+                <th class="price-field">Оплата</th>
+                <th class="order-button-field"></th>
+            </tr>
+            </thead>
+            <tbody id="offers-table-body"></tbody>
+        </table>
+    </div>
+</div>
+<div class="order-modal" id="order-window">
+    <div class="overlay"></div>
+    <div class="order-window">
+        <form action="{% url 'search:order_confirmation' %}" method="post">
+            {% csrf_token %}
+            <img src="{% static 'Search/icons/close.svg' %}" alt="" onclick="closeOrderModal()">
+            <h1>Подработка!</h1>
+            <ul id="modal-order-data-list">
+                <li id="order_id"><span>Номер:</span></li>
+                <li id="order_date"><span>Дата:</span></li>
+                <li id="order_work_time"><span>Смена:</span></li>
+                <li id="order_city"><span>Город:</span></li>
+                <li id="order_district"><span>Район:</span></li>
+                <li id="order_address"><span>Адрес:</span></li>
+                <li id="order_rating"><span>Рейтинг:</span></li>
+                <li id="order_post"><span>Должность:</span></li>
+                <li id="order_additions"><span>Дополнения:</span></li>
+                <li id="order_price"><span>Оплата:</span></li>
+                <li id="order_description"><span>Описание:</span></li>
+            </ul>
+            <button class="order-confirmation-btn" type="submit">Взять подработку!</button>
+        </form>
+    </div>
+</div>
+<script src="{% static 'Search/js/searching.js' %}"></script>
+{% endblock %}

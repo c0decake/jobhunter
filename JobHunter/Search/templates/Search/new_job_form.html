@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="job-form-wrapper">
+    <h1>Новая подработка!</h1>
+    <form class="new-job-form" action="{% url 'menu:set_job' %}" method="post">
+        {% csrf_token %}
+        <select id="city" onfocus="updateDistricts(city, district)" class="city" name="city">
+            {% for city in cities %}
+            <option value="{{ city.pk }}">{{city.name}}</option>
+            {% endfor %}
+        </select>
+        <select id="district" class="district" name="district" onchange="updateShops()">
+            <option value="NotSelectedDistrict">Выбери район</option>
+        </select>
+        <select id="shop" class="shop" name="shop">
+            <option value="NotSelectedShop">-</option>
+        </select>
+        <div class="datetime">
+            <label>
+                Дата смены
+                <input type="date" class="job-date" name="date">
+            </label>
+            <label>
+                C
+                <input type="time" class="time-h" name="arrival_time">
+            </label>
+            <label>
+                До
+                <input type="time" class="time-m" name="time_end">
+            </label>
+        </div>
+        <select id="post" class="post" name="post">
+            <option value="#">Выбери должность</option>
+            {% for p in post %}
+            <option value="{{ p.pk }}">{{p.name}}</option>
+            {% endfor %}
+        </select>
+        <label>
+            Рейтинг
+            <input type="text" placeholder="1-999" name="rating">
+        </label>
+        <label>
+            Такси утром
+            <input type="checkbox" id="#2" name="taxi_in">
+        </label>
+        <label>
+            Такси вечером
+            <input type="checkbox" id="#6" name="taxi_from">
+        </label>
+        <label>
+            Туалет
+            <input type="checkbox" id="#" name="toilet">
+        </label>
+        <label>
+            Цеховое питание
+            <input type="checkbox" id="#1" name="food">
+        </label>
+        <label>
+            Напитки на цех
+            <input type="checkbox" id="#4" name="drinks">
+        </label>
+        <label>
+            Стоимость смены
+            <input type="text" class="price-field" name="price">р.
+        </label>
+        <button type="submit">
+            Добавить
+        </button>
+    </form>
+</div>
+{% endblock %}

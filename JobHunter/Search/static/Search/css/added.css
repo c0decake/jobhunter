@@ -1,0 +1,23 @@
+.added-jobs {
+    height: 100%;
+}
+
+.added-order {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    border-radius: 10px;
+    background-color: white;
+    height: 70px;
+    font-family: "Jost", sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.add-new-order {
+    width: 100%;
+    border-radius: 8px;
+    padding: 5px;
+}

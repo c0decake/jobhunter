@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'Orders/css/orders.css' %}">
+
+<div class="orders-lists">
+    <div class="added">
+        <h1>Добавленные подработки</h1>
+        <div class="added-orders">
+            <table id="added-offers-table" class="offers-table">
+            <thead>
+            <tr>
+                <th class="data-field">Дата</th>
+                <th class="work-time-field">Рабочая смена</th>
+                <th class="location-field">Расположение</th>
+                <th class="post-field">Должность</th>
+                <th class="additions-field">Дополнения</th>
+                <th class="price-field">Оплата</th>
+                <th class="order-button-field"></th>
+            </tr>
+            </thead>
+            <tbody id="offers-table-body"></tbody>
+        </table>
+        </div>
+        <button>Добавить подработку!</button>
+    </div>
+</div>
+<div class="added-order-modal" id="added-order-modal">
+    <div class="overlay">
+
+    </div>
+    <div class="modal">
+        <img src="{% static 'Search/icons/close.svg' %}" alt="" onclick="showOrderModal()">
+    </div>
+</div>
+<script src="{% static 'Orders/js/orders.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,122 @@
+.orders-lists {
+    display: flex;
+    justify-content: space-between;
+    width: 1120px;
+    height: 100%;
+    margin: 0 auto;
+    padding: 30px 50px;
+
+    .added {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        background-color: white;
+        box-shadow: 2px 2px 3px grey;
+        border-radius: 10px;
+        position: relative;
+        font-family: "Roboto Condensed", sans-serif;
+
+        h1 {
+            display: block;
+            margin: 20px 0;
+
+            font-size: 22px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        h1::after {
+            content: "";
+            height: 2px;
+            width: 80%;
+            background-color: black;
+            position: absolute;
+            top: 62px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        button {
+            width: 80%;
+            height: 40px;
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 10px;
+            border: none;
+            background-color: green;
+            box-shadow: 2px 2px 5px black;
+
+            font-size: 16px;
+            font-weight: 700;
+            color: white;
+            letter-spacing: 1px;
+        }
+
+        button:active {
+            box-shadow: inset 2px 2px 5px black;
+        }
+    }
+}
+
+.added-orders {
+    width: 90%;
+    height: 100%;
+    margin: 20px auto 80px auto;
+}
+
+.offers-table {
+    width: 100%;
+
+    tbody tr {
+        box-shadow: 2px 2px 3px black;
+        cursor: pointer;
+    }
+}
+
+.added-order-modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    z-index: -1;
+    transition: .3s;
+
+    .overlay {
+        width: 100%;
+        height: 100%;
+        background-color: black;
+        opacity: .8;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    .modal {
+        width: 600px;
+        height: 400px;
+        background-color: white;
+        border-radius: 10px;
+        position: relative;
+    }
+
+    img {
+        position: absolute;
+        top: 5px;
+        right: -69px;
+        cursor: pointer;
+    }
+}
+
+.added-order-modal-activate {
+    opacity: 1;
+    z-index: 12;
+    transition: 0.3s;
+}

@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'Profile/css/profile.css'%}">
+<div class="main">
+    <div class="avatar">
+        {% if user_data.block_status %}
+        <span class="active-status">Активен</span>
+        {% else %}
+        <span class="block-status">Заблокирован</span>
+        {% endif %}
+        <div class="user-photo">
+            {% if user_data.photo %}
+            <img src="{% static 'Profile/icons/default_profile.png' %}" alt="">
+            {% else %}
+            <img src="{% static 'Profile/icons/default_account.png' %}" alt="">
+            {% endif %}
+        </div>
+        <span class="user-name">{{ user_data.name }}</span>
+    </div>
+    <div class="content">
+        <div class="general">
+            <h1 class="general-data-h">Основная информация</h1>
+            <div class="post"><span>Должность</span><span>Старший продавец</span></div>
+            <div class="date-of-register"><span>Дата регистрации</span><span>30.06.2023</span></div>
+            <div class="sub"><span>Подписка</span><span>Активна</span></div>
+            <div class="birthday"><span>Дата рождения</span><span>30.06.2003</span></div>
+        </div>
+        <div class="contact">
+            <h1 class="contact-data-h">Контактная информация</h1>
+            <div class="email"><span>Email</span><span>g24mmb4m@gmail.com</span></div>
+            <div class="phone-number"><span>Номер телефона</span><span>89968985214</span></div>
+            <div class="telegram"><span>Telegram</span><span>@kollemadritt</span></div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+</html>

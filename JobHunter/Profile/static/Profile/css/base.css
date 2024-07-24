@@ -1,0 +1,170 @@
+{
+%
+load
+static
+%
+}
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block
+}
+
+html {
+    height: 100%
+}
+
+body {
+    line-height: 1
+}
+
+ol, ul {
+    list-style: none
+}
+
+blockquote, q {
+    quotes: none
+}
+
+blockquote:before, blockquote:after, q:before, q:after {
+    content: '';
+    content: none
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0
+}
+
+* {
+    letter-spacing: -1px;
+    font-family: "Jost", sans-serif;
+}
+
+.wrapper {
+    height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+    vertical-align: middle;
+    background-color: #F5F5F5;
+}
+
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    height: 10%;
+    padding: 0 50px;
+    box-shadow: 1px 5px 10px black;
+}
+
+
+.nav .logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.logo img {
+    width: 250px;
+    height: 250px;
+}
+
+.nav .menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto 0;
+    width: 40px;
+    height: 40px;
+    border: 3px grey solid;
+    border-radius: 50%;
+    position: relative;
+}
+
+.menu img {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.sidebar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 450px;
+    height: 100%;
+    background-color: black;
+    position: fixed;
+    top: 0;
+    right: 0;
+    transform: translateX(150%);
+    transition: transform .5s ease-in-out;
+    z-index: 1;
+
+    img {
+        width: 50px;
+        position: absolute;
+        top: 5px;
+        left: -54px;
+        cursor: pointer;
+    }
+
+    ul {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        height: 50%;
+    }
+
+    li {
+        position: relative;
+    }
+
+    li::before {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 50%;
+        width: 0;
+        height: 4px;
+        background-color: #f1f1f1; /* Цвет полоски */
+        transform-origin: left center; /* Точка поворота */
+        transition: all 0.3s ease; /* Анимация перехода */
+    }
+
+    li:hover {
+        font-size: 33px;
+        transition: all 0.3s ease-in-out;
+    }
+
+    li:hover:before {
+        width: 100%; /* Полная ширина полоски при наведении */
+        left: 0; /* Полоска заполняет всю ширину текста */
+        transform: scaleX(1); /* Масштабирование вправо */
+    }
+
+    a {
+        font-family: "Jost", sans-serif;
+        font-size: 32px;
+        font-weight: 700;
+        color: white;
+        text-decoration: none;
+    }
+}
+
+.sidebar.active {
+    transform: translateX(0%);
+}
+
